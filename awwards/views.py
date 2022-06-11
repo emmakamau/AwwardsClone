@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .decorators import *
 from .forms import *
+from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail,BadHeaderError
 
