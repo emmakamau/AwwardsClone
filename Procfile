@@ -1,0 +1,1 @@
+web: gunicorn AwwardsClone.wsgi --log-file -
