@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'storages',
     'crispy_forms',
     'mapbox_location_field',
+    'phonenumber_field',
 
     'django.contrib.admin',
     'django.contrib.auth',

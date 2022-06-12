@@ -17,7 +17,7 @@
     <div class="project-detail-details">
         <h5 class="font-weight-bold pt-1">
             <span><img src="{{user.prof_pic.url}}" class="project-detail-profpic"></span>
-            {{user.name}}
+            <a href="{% url 'user_profile' project.owner.id %}">{{user.name}}</a>
             <span class="float-right">
                 <a href="{% url 'like_project' user.id project.id %}">
                     <i class="fas fa-thumbs-up"></i> 

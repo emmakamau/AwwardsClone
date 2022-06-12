@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from mapbox_location_field.models import LocationField
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 
@@ -10,6 +11,9 @@ class Profile(models.Model):
     bio = models.TextField(blank=True, max_length=255)
     website = models.URLField(blank=True, max_length=50)
     name = models.CharField(blank=True,max_length=50)
+    phone = PhoneNumberField(blank=True)
+    fax_number = PhoneNumberField(blank=True)
+    linkedin = models.URLField(blank=True)
 
     def __str__(self):
         return self.name
