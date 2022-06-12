@@ -1,5 +1,6 @@
 # Awwards Clone
 
+A project that allows users to create accounts and add projects as well as vote for other users projects based on design, usability and content.
 
 ## Technology used
 1. Python
@@ -22,6 +23,13 @@ An IDE such as VS code with Python version 3 installed,a terminal and a browser.
 7. View the application on your browser through `http://127.0.0.1:8000`.
 
 ## Behaviour Driven Development
+BDD focuses on how the user will interact with the application. What you will see and experience:
+
+1. Landing page with various projects from different users. A navigation bar as well with home, login and register routes.
+2. Create an account with a unique username,an email and password. You will receive an email and redirected to login, you'll be required to login to vote for any project.
+3. User can also create and update their profile.
+4. Profile view displays users projects, click on the image to view more details of the project and get access to a live link.
+5. Click on the upload project svg to add a project for others to view.
 
 ## Development
 To fix a bug or enhance an existing module, follow these steps:
