@@ -7,3 +7,9 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ('id','user','prof_pic','bio',
                   'website','name','bio','phone','fax_number',
                   'linkedin')
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ('owner','title','description','project_image',
+                'project_url','created_on','location')
