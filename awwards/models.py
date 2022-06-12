@@ -33,3 +33,38 @@ class Project(models.Model):
     def save_project(self):
         '''Add new project'''
         self.save()
+
+    @classmethod
+    def delete_project(cls,id):
+        ''' Delete project from database '''
+        project = Project.objects.get(id=id)
+        project.delete()
+
+    @property
+    def saved_likes(self):
+        return self.likes.count()
+
+class Comment(models.Model):
+    user_profile = models.ForeignKey(Profile,null=True,on_delete=models.SET_NULL)
+    user_comment = models.CharField(blank=False, max_length=255)
+    project_associated = models.ForeignKey(Project,null=True,on_delete=models.SET_NULL)
+
+    def __str__(self):
+        return self.user_comment
+
+    def save_comment(self):
+        '''Add Comment to database'''
+        self.save()
+
+    @classmethod
+    def delete_comment(cls,id):
+        ''' Delete comment from database '''
+        comment = Comment.objects.get(id=id)
+        comment.delete()
+
+class PostVote(models.Model):
+    profile_vote = models.ForeignKey(Profile,null=True,on_delete=models.SET_NULL)
+    post_voted = models.ForeignKey(Project,null=True,on_delete=models.SET_NULL,related_name='likes')
+
+    def save_like(self):
+        self.save()

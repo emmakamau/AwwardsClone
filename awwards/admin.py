@@ -4,3 +4,5 @@ from mapbox_location_field.admin import MapAdmin
 # Register your models here.
 admin.site.register(Profile)
 admin.site.register(Project,MapAdmin)
+admin.site.register(PostVote)
+admin.site.register(Comment)
