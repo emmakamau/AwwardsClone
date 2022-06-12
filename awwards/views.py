@@ -158,11 +158,37 @@ def create_project(request):
     return render(request,'project-upload-form.html',context=context)
 
 @login_required(login_url='login')
-def like_project(request,user_id,project_id):
+def like_project_design(request,user_id,project_id):
     profile_vote=Profile.objects.get(id=user_id)
     post_voted = Project.objects.get(id=project_id)
 
-    new_like = PostVote(
+    new_like = DesignVote(
+        profile_vote=profile_vote,
+        post_voted=post_voted
+    )
+    new_like.save_like()
+
+    return redirect('homepage')
+
+@login_required(login_url='login')
+def like_project_usability(request,user_id,project_id):
+    profile_vote=Profile.objects.get(id=user_id)
+    post_voted = Project.objects.get(id=project_id)
+
+    new_like = UsabilityVote(
+        profile_vote=profile_vote,
+        post_voted=post_voted
+    )
+    new_like.save_like()
+
+    return redirect('homepage')
+
+@login_required(login_url='login')
+def like_project_content(request,user_id,project_id):
+    profile_vote=Profile.objects.get(id=user_id)
+    post_voted = Project.objects.get(id=project_id)
+
+    new_like = ContentVote(
         profile_vote=profile_vote,
         post_voted=post_voted
     )

@@ -13,7 +13,9 @@ urlpatterns=[
 
     path('<id>/',views.project_details,name='project-details'),
     path('create_project/new/',views.create_project,name='create_project'),
-    path('like_image/<user_id>/<project_id>',views.like_project, name='like_project'),
+    path('like_image_design/<user_id>/<project_id>',views.like_project_design, name='like_project_design'),
+    path('like_image_usability/<user_id>/<project_id>',views.like_project_usability, name='like_project_usability'),
+    path('like_image_content/<user_id>/<project_id>',views.like_project_content, name='like_project_content'),
 
     path('reset_password/',auth_views.PasswordResetView.as_view(template_name="accounts/password_reset.html"),name="reset_password"),
     path('reset_password_sent/',auth_views.PasswordResetDoneView.as_view(template_name="accounts/password_reset_sent.html"),name="password_reset_done"),

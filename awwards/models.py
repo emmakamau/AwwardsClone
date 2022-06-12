@@ -45,8 +45,16 @@ class Project(models.Model):
         project.delete()
 
     @property
-    def saved_likes(self):
-        return self.likes.count()
+    def saved_likes_design(self):
+        return self.design_likes.count()
+
+    @property
+    def saved_likes_usability(self):
+        return self.usability_likes.count()
+
+    @property
+    def saved_likes_content(self):
+        return self.content_likes.count()
 
 class Comment(models.Model):
     user_profile = models.ForeignKey(Profile,null=True,on_delete=models.SET_NULL)
@@ -66,9 +74,24 @@ class Comment(models.Model):
         comment = Comment.objects.get(id=id)
         comment.delete()
 
-class PostVote(models.Model):
+# Design Usability Content
+class DesignVote(models.Model):
     profile_vote = models.ForeignKey(Profile,null=True,on_delete=models.SET_NULL)
-    post_voted = models.ForeignKey(Project,null=True,on_delete=models.SET_NULL,related_name='likes')
+    post_voted = models.ForeignKey(Project,null=True,on_delete=models.SET_NULL,related_name='design_likes')
+
+    def save_like(self):
+        self.save()
+
+class UsabilityVote(models.Model):
+    profile_vote = models.ForeignKey(Profile,null=True,on_delete=models.SET_NULL)
+    post_voted = models.ForeignKey(Project,null=True,on_delete=models.SET_NULL,related_name='usability_likes')
+
+    def save_like(self):
+        self.save()
+
+class ContentVote(models.Model):
+    profile_vote = models.ForeignKey(Profile,null=True,on_delete=models.SET_NULL)
+    post_voted = models.ForeignKey(Project,null=True,on_delete=models.SET_NULL,related_name='content_likes')
 
     def save_like(self):
         self.save()
