@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'mapbox_location_field',
     'phonenumber_field',
+    'rest_framework',
 
     'django.contrib.admin',
     'django.contrib.auth',

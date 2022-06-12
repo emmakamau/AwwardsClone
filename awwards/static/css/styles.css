@@ -3,6 +3,12 @@
     color: #463333;
 }
 
+hr{
+    border: #463333 1px solid;
+    margin: 0;
+    padding: 0;
+}
+
 .btn-primary, .btn, .btn-light{
     background-color: #463333;
     color: #FFF0F0;
@@ -149,7 +155,7 @@ a:hover{
   .nav-items{
     font-size: large;
     font-weight: bold;
-    padding: 0 1vw;
+    padding: 0 1.5vw;
   }
 
   .search-text{
