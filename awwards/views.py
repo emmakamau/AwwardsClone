@@ -95,6 +95,15 @@ def project_details(request,id):
     return render(request,'project-details.html',context=context)
 
 @login_required(login_url='login')
+def create_project(request):
+    project_form = ProjectUploadForm()
+
+    context={
+        'project_form':project_form
+    }
+    return render(request,'project-upload-form.html',context=context)
+
+@login_required(login_url='login')
 def like_project(request,user_id,project_id):
     profile_vote=Profile.objects.get(id=user_id)
     post_voted = Project.objects.get(id=project_id)

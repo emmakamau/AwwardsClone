@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load mapbox_location_field_tags %} 
+{% load mapbox_location_field_tags %}
 {% location_field_includes %}
 {% include_jquery %}
 
@@ -10,12 +10,21 @@
     <div class="card" style="width: 20rem;">
         <img class="card-img-top" src="{{project.project_image.url}}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title font-weight-bold">{{project.title}}</h5>
+            <h5 class="card-title font-weight-bold">{{project.title}}
+                <span class="float-right">
+                    <a href="{% url 'like_project' user.id project.id %}">
+                        <i class="fas fa-thumbs-up"></i>
+                        {{project.saved_likes}}
+                    </a>
+                </span>
+            </h5>
             <p class="card-text">
                 {{project.description|truncatechars:50}}
-                <a href="">view more</a>
+                <a href="{% url 'project-details' project.id %}">view more</a>
             </p>
-            <span class="small">Location:{{project.location}}  Created:{{project.created_on}}</span>
+            <p class="small">Location:{{project.location}}
+                <span class="float-right">Created:{{project.created_on}}</span>
+            </p>
             <div class="text-center">
                 <a href="{{project.project_url}}" class="btn btn-light">Live link</a>
             </div>

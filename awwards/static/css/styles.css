@@ -1,3 +1,10 @@
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+
 /* Accounts pages - login and signin */
 .accounts-page{
     margin-top: 6vh;
@@ -146,3 +153,4 @@
     height: 5vh;
     border-radius: 50%;
 }
+

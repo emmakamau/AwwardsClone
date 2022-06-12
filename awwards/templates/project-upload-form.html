@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load mapbox_location_field_tags %} 
+{% location_field_includes %}
+{% include_jquery %}
+
+{% block content %}
+<br><br><br>
+<div class="project-upload-form d-flex justify-content-center">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{project_form|crispy}}
+        {{project_form.media}}
+        <div class="text-center">
+            <input type="submit" name="Submit" value="SUBMIT" class="accounts-submit btn-primary" /><br>
+        </div>
+    </form>
+</div>
+{% endblock %}

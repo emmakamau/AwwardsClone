@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django.forms import ModelForm,TextInput
 from django import forms
 from .models import *
@@ -14,3 +15,12 @@ class SignUpForm(UserCreationForm):
             super(SignUpForm, self).__init__(*args, **kwargs)
             self.helper = FormHelper()
             self.helper.form_show_labels = False
+
+class ProjectUploadForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ['title','description','project_image','project_url','location']
+
+        def __init__(self,*args, **kwargs):
+            super(ProjectUploadForm, self).__init__(*args, **kwargs)
+            self.helper = FormHelper()
