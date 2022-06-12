@@ -33,11 +33,11 @@
                 <img src="{% static 'css/assets/signup.svg' %}" title="Signup" alt="" srcset="">
             </a></li>
             {% else %}
-            <li class="nav-items"><a href="" >
+            <li class="nav-items"><a href="{% url 'create_project' %}" >
                 {% load static %}
                 <img src="{% static 'css/assets/add-svgrepo-com.svg' %}" title="Upload project">
             </a></li>
-            <li class="nav-items"><a href="">
+            <li class="nav-items"><a href="{% url 'user_profile' user.id %}">
                 {% load static %}
                 <img src="{% static 'css/assets/profile-svgrepo-com.svg' %}" title="{{request.user}}">
             </a></li>

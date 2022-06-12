@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="m-3">
+    <br><br><br>
+    <!-- About user -->
+    <div class="row user-profile-display">
+        <div class="col-md-6 profile_section_one">
+            {% if user_profile.prof_pic %}
+            <img src="{{user_profile.prof_pic.url}}" class="prof_pic rounded-circle ig-image-accounts" alt="" srcset="">
+            {% else %}
+            {% load static %}
+            <img src="{% static 'css/assets/avatar.png' %}" class="prof_pic rounded-circle ig-image-accounts" alt=""
+                srcset="">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <div class="profile_section_two">
+                <h4 class="font-weight-bold">
+                    {{user_name.username}}
+                </h4>
+
+                <p class="font-weight-bold">{{user_profile.name}}</p>
+                <p>{{user_profile.bio}}</p>
+                {% if user_profile.website %}
+                <a href="{{user_profile.website}}">Personal Website</a>
+                {% endif %}
+            </div>
+            <br>
+            {% if user.username == user_profile.user.username %}
+            <a href="" class="btn btn-light">
+                Edit Profile
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <hr style="width:90%">
+    <!-- Post display by user -->
+    <div class="d-flex justify-content-center">
+        {% for project in user_projects %}
+        <div class="card" style="width: 20rem;">
+            <a href="{% url 'project-details' project.id %}">
+                <img src="{{project.project_image.url}}" class="card-img-top" title="{{project.title}}">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

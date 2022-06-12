@@ -8,6 +8,8 @@ urlpatterns=[
     path('signup/',views.signup,name='signup'),
     path('logout/',views.logoutuser,name='logout'),
 
+    path('profile/<id>/',views.profile,name='user_profile'),
+
     path('<id>/',views.project_details,name='project-details'),
     path('create_project/new/',views.create_project,name='create_project'),
     path('like_image/<user_id>/<project_id>',views.like_project, name='like_project'),

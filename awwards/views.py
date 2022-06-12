@@ -76,6 +76,16 @@ def logoutuser(request):
     logout(request)
     return redirect('login')
 
+def profile(request,id):
+    user_profile = Profile.objects.get(id=id)
+    user_projects = Project.objects.filter(owner=id)
+
+    context={
+        'user_profile':user_profile,
+        'user_projects':user_projects
+    }
+    return render(request,'profile.html',context=context)
+
 def homepage(request):
     all_projects = Project.objects.all()
 
