@@ -1,0 +1,60 @@
+/* Accounts pages - login and signin */
+.accounts-page{
+    margin-top: 6vh;
+}
+.ig-image-accounts{
+    display: block;
+    margin-left: auto;
+}
+.account-nav{
+    margin-top: 2vh;
+    padding: 2vw;
+}
+.separator::before,.separator::after {
+    display: inline-block;
+    content: "";
+    border-top: 1px solid black;
+    width: 4rem;
+    margin:-0.5rem 1rem;
+    transform: translateY(-1rem);
+    opacity: 0.5;
+}
+.accounts-submit{
+    margin: 1rem;
+    padding: .5rem;
+    border-radius: 3%;
+    width: 85%;
+    font-weight: bold;
+}
+
+    /* Login-page */
+    .password-reset-pages{
+        width: 70%;
+        padding: 2vw;
+        top: 20%;
+        position: relative;
+        border: 1px solid #DCDCDC;
+        background-color: white;
+    }
+    .login-section{
+        border: 1px solid #DCDCDC;
+        width: 60%;
+        margin-top: 2vh;
+        background-color: white;
+    }
+    .login-form{
+        width: 90%;
+        margin: 2vh auto;
+    }
+    .accounts-username, .accounts-password, .accounts-email{
+        background: transparent;
+        border: 0 solid;
+        border-radius: 1%;
+        border: 1px solid #DCDCDC;
+        color: white;
+        display: block;
+        margin: 1rem;
+        padding: .5rem;
+        transition: 250ms ease-in;
+        width: calc(100% - 3rem);
+    }

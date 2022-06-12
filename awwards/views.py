@@ -76,7 +76,6 @@ def logoutuser(request):
     logout(request)
     return redirect('login')
 
-@login_required(login_url='login')
 def homepage(request):
     
 
