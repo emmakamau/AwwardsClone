@@ -31,13 +31,13 @@ def signup(request):
             message =   '''   
                         Hello,
 
-                        Welcome to IG
+                        Welcome to Awwards
 
                         Thank you for signing up. 
                         We are excited to welcome you to the family.
 
                         Happy Posting.
-                        IG Family
+                        Awwards Family
                         
                         '''
             from_email = 'no-reply@example.com'
@@ -77,8 +77,9 @@ def logoutuser(request):
     return redirect('login')
 
 def homepage(request):
-    
+    all_projects = Project.objects.all()
 
     context={
+        'all_projects':all_projects
     }
     return render(request,'index.html',context=context)

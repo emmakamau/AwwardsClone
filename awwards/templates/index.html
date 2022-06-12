@@ -1,3 +1,26 @@
 {% extends 'base.html' %}
+{% load mapbox_location_field_tags %} 
+{% location_field_includes %}
+{% include_jquery %}
+
 {% block content %}
+<br><br><br>
+<div class="display-all-projects d-flex justify-content-center">
+    {% for project in all_projects %}
+    <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="{{project.project_image.url}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold">{{project.title}}</h5>
+            <p class="card-text">
+                {{project.description|truncatechars:50}}
+                <a href="">...view more</a>
+            </p>
+            <span class="small">Location:{{project.location}}  Created:{{project.created_on}}</span>
+            <div class="text-center">
+                <a href="{{project.project_url}}" class="btn btn-light">Live link</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'storages',
     'crispy_forms',
+    'mapbox_location_field',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -119,6 +120,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Location setting
+MAPBOX_KEY = os.environ.get('MAPBOX_KEY')
 
 
 # Static files (CSS, JavaScript, Images)
