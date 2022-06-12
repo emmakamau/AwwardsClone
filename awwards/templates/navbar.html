@@ -1,5 +1,5 @@
 <header class="main-header fixed-top">
-    <div class="p-1">
+    <!-- <div class="p-1">
         <form action="/search/" method="POST">
             {% csrf_token %}
             <div class="input-group mb-3">
@@ -12,39 +12,39 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div> -->
     <a href="{% url 'homepage' %}" class="brand-logo">
         <h2 class="page-title" title="HomePage">awwards</h2>
     </a>
-    
+
     <nav class="main-nav">
         <ul>
-            <li class="nav-items"><a href="{% url 'homepage' %}" title="HomePage" >
-                {% load static %}
-                <img src="{% static 'css/assets/home-house-svgrepo-com.svg' %}" title="HomePage" alt="" srcset="">
-            </a></li>
-            {% if user is unauthenticated %}
-            <li class="nav-items"><a href="{% url 'login' %}" title="Login" >
-                {% load static %}
-                <img src="{% static 'css/assets/login-svgrepo-com.svg' %}" title="Login" alt="" srcset="">
-            </a></li>
-            <li class="nav-items"><a href="{% url 'signup' %}" title="Signup" >
-                {% load static %}
-                <img src="{% static 'css/assets/signup.svg' %}" title="Signup" alt="" srcset="">
-            </a></li>
-            {% else %}
-            <li class="nav-items"><a href="{% url 'create_project' %}" >
-                {% load static %}
-                <img src="{% static 'css/assets/add-svgrepo-com.svg' %}" title="Upload project">
-            </a></li>
+            <li class="nav-items"><a href="{% url 'homepage' %}" title="HomePage">
+                    {% load static %}
+                    <img src="{% static 'css/assets/home-house-svgrepo-com.svg' %}" title="HomePage" alt="" srcset="">
+                </a></li>
+            {% if user.is_authenticated %}
+            <li class="nav-items"><a href="{% url 'create_project' %}">
+                    {% load static %}
+                    <img src="{% static 'css/assets/add-svgrepo-com.svg' %}" title="Upload project">
+                </a></li>
             <li class="nav-items"><a href="{% url 'user_profile' user.id %}">
-                {% load static %}
-                <img src="{% static 'css/assets/profile-svgrepo-com.svg' %}" title="{{request.user}}">
-            </a></li>
+                    {% load static %}
+                    <img src="{% static 'css/assets/profile-svgrepo-com.svg' %}" title="{{request.user}}">
+                </a></li>
             <li class="nav-items"><a href="{% url 'logout' %}">
-                {% load static %}
-                <img src="{% static 'css/assets/logout-svgrepo-com.svg' %}" title="Logout">
-            </a></li>
+                    {% load static %}
+                    <img src="{% static 'css/assets/logout-svgrepo-com.svg' %}" title="Logout">
+                </a></li>
+            {% else %}
+            <li class="nav-items"><a href="{% url 'login' %}" title="Login">
+                    {% load static %}
+                    <img src="{% static 'css/assets/login-svgrepo-com.svg' %}" title="Login" alt="" srcset="">
+                </a></li>
+            <li class="nav-items"><a href="{% url 'signup' %}" title="Signup">
+                    {% load static %}
+                    <img src="{% static 'css/assets/signup.svg' %}" title="Signup" alt="" srcset="">
+                </a></li>
             {% endif %}
         </ul>
     </nav>

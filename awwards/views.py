@@ -74,8 +74,9 @@ def loginuser(request):
 def logoutuser(request):
 
     logout(request)
-    return redirect('login')
+    return redirect('homepage')
 
+@login_required(login_url='login')
 def profile(request,id):
     user_profile = Profile.objects.get(id=id)
     user_projects = Project.objects.filter(owner=id)
@@ -116,6 +117,7 @@ def homepage(request):
     }
     return render(request,'index.html',context=context)
 
+@login_required(login_url='login')
 def project_details(request,id):
     project = Project.objects.get(id=id)
     user = Profile.objects.get(id=project.owner.id)
