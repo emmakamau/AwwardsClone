@@ -27,7 +27,7 @@
             </div>
             <br>
             {% if user.username == user_profile.user.username %}
-            <a href="" class="btn btn-light">
+            <a href="{% url 'profile_update' user.username %}" class="btn btn-light">
                 Edit Profile
             </a>
             {% endif %}

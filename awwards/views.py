@@ -86,6 +86,28 @@ def profile(request,id):
     }
     return render(request,'profile.html',context=context)
 
+@login_required(login_url='login')
+def profile_update(request,username):
+    user_name = User.objects.get(username=username)
+    user_profile = Profile.objects.get(user=user_name.id)
+
+    data = get_object_or_404(Profile, id=user_profile.id)
+    profile_form = ProfileUpdateForm(instance=data)
+
+    if request.method == "POST":
+        profile_form = ProfileUpdateForm(request.POST,request.FILES, instance=data)
+        if profile_form.is_valid():
+            profile_form.save()
+            
+            return redirect ('profile_update', username=user_name)
+
+    context={
+        'user_name':user_name,
+        'profile_form':profile_form,
+        'user_profile':user_profile
+    }
+    return render(request,'profile_update.html',context=context)
+
 def homepage(request):
     all_projects = Project.objects.all()
 
