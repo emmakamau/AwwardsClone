@@ -2,7 +2,7 @@
 
 {% block content %}
 <br><br>
-<div class="login-page d-flex justify-content-center">
+<div class="accounts-page d-flex justify-content-center">
     <div class="login-section text-center">
         <div class="account-nav">
             <div class="row">
@@ -28,7 +28,7 @@
         </form>
         <div class="password-admin">
 
-            <h6 class="text-center"><a href="#" class="font-weight-normal">Forgot password?</a></h6>
+            <h6 class="text-center"><a href="{% url 'reset_password' %}" class="font-weight-normal">Forgot password?</a></h6>
             <br>
         </div>
     </div>
