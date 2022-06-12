@@ -83,3 +83,26 @@ def homepage(request):
         'all_projects':all_projects
     }
     return render(request,'index.html',context=context)
+
+def project_details(request,id):
+    project = Project.objects.get(id=id)
+    user = Profile.objects.get(id=project.owner.id)
+
+    context={
+        'project':project,
+        'user':user
+    }
+    return render(request,'project-details.html',context=context)
+
+@login_required(login_url='login')
+def like_project(request,user_id,project_id):
+    profile_vote=Profile.objects.get(id=user_id)
+    post_voted = Project.objects.get(id=project_id)
+
+    new_like = PostVote(
+        profile_vote=profile_vote,
+        post_voted=post_voted
+    )
+    new_like.save_like()
+
+    return redirect('homepage')

@@ -128,5 +128,21 @@
 
   .search-text{
       border-radius:2%;
-    
   }
+
+/* Project display */
+.project-detail-image{
+    width: 40vw;
+    height: 60vh;
+}
+
+.project-detail-details{
+    width: 40%;
+    padding: 0 4vw;
+}
+
+.project-detail-profpic{
+    width: 3vw;
+    height: 5vh;
+    border-radius: 50%;
+}

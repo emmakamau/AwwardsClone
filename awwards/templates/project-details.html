@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br>
+<div class="project-display d-flex justify-content-center">
+    <div class="project-detail">
+        <img src="{{project.project_image.url}}" class="project-detail-image">
+    </div>
+    <div class="project-detail-details">
+        <h5 class="font-weight-bold pt-1">
+            <span><img src="{{user.prof_pic.url}}" class="project-detail-profpic"></span>
+            {{user.name}}
+
+            <span class="float-right">
+                <a href="{% url 'like_project' user.id project.id %}">
+                    <i class="fas fa-thumbs-up"></i> 
+                    {{project.saved_likes}}
+                </a>
+            </span>
+        </h5>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h6 class="font-weight-bold">{{project.title}}</h6>
+            </div>
+            <div class="col-md-6">
+                <p class="float-right">{{project.created_on}}</p>
+            </div>
+        </div>
+        <p>{{project.description}}</p>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="small">Location:{{project.location}}</p>
+            </div>
+            <div class="col-md-6">
+                <a href="{{project.project_url}}" class="float-right small">Live link</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
