@@ -2,7 +2,7 @@
 {% block content %}
 <div class="pt-3">
     <!-- About user -->
-    <div class="row user-profile-display">
+    <div class="row user-profile-display pb-3">
         <div class="col-md-4 profile_section_one">
             {% if user_profile.prof_pic %}
             <img src="{{user_profile.prof_pic.url}}" class="prof_pic rounded-circle ig-image-accounts" alt="" srcset="">
@@ -46,11 +46,11 @@
             {% endif %}
         </div>
     </div>
-    <hr style="width:90%">
+    <hr>
     <!-- Post display by user -->
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center pt-2">
         {% for project in user_projects %}
-        <div class="card m-2" style="width: 16rem;">
+        <div class="card m-2" style="width: 18rem;">
             <a href="{% url 'project-details' project.id %}">
                 <img src="{{project.project_image.url}}" class="card-img-top" title="{{project.title}}">
             </a>

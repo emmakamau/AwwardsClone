@@ -15,7 +15,12 @@
     </div>
     <div class="project-detail-details">
         <h5 class="font-weight-bold pt-1">
+            {% if user_profile.prof_pic %}
             <span><img src="{{user.prof_pic.url}}" class="project-detail-profpic"></span>
+            {% else %}
+            {% load static %}
+            <span><img src="{% static 'css/assets/avatar.png' %}" class="project-detail-profpic"></span>
+            {% endif %}
             <a href="{% url 'user_profile' project.owner.id %}">{{user.name}}</a>
         </h5>
         <br>
