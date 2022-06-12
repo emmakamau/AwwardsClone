@@ -37,7 +37,7 @@
     <!-- Post display by user -->
     <div class="d-flex justify-content-center">
         {% for project in user_projects %}
-        <div class="card" style="width: 20rem;">
+        <div class="card m-2" style="width: 16rem;">
             <a href="{% url 'project-details' project.id %}">
                 <img src="{{project.project_image.url}}" class="card-img-top" title="{{project.title}}">
             </a>

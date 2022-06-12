@@ -109,7 +109,7 @@ def profile_update(request,username):
     return render(request,'profile_update.html',context=context)
 
 def homepage(request):
-    all_projects = Project.objects.all()
+    all_projects = Project.objects.all().order_by('id').reverse()
 
     context={
         'all_projects':all_projects
@@ -129,6 +129,28 @@ def project_details(request,id):
 @login_required(login_url='login')
 def create_project(request):
     project_form = ProjectUploadForm()
+    if request.method == "POST":
+        project_form= ProjectUploadForm(request.POST, request.FILES)
+        
+        if project_form.is_valid():
+            user = request.user
+            title = project_form.cleaned_data.get('title')
+            description = project_form.cleaned_data.get('description')
+            project_image  = project_form.cleaned_data.get('project_image')
+            project_url = project_form.cleaned_data.get('project_url')
+            location = project_form.cleaned_data.get('location')
+            owner = Profile.objects.get(user=user.id)
+            
+            new_project = Project(
+                owner=owner,
+                title=title,
+                description=description,
+                project_image=project_image,
+                project_url=project_url,
+                location=location
+            )
+            new_project.save_project()
+            return redirect('homepage')
 
     context={
         'project_form':project_form
