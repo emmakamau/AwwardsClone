@@ -1,8 +1,30 @@
+*{
+    background-color: #FFF0F0;
+    color: #463333;
+}
+
+.btn-primary, .btn, .btn-light{
+    background-color: #463333;
+    color: #FFF0F0;
+    border: #FFF0F0 1px solid;
+}
+
+.btn-primary:hover, .btn:hover, .btn-light:hover{
+    background-color: #FFF0F0;
+    color: #463333;
+    border: #463333 3px solid;
+}
+
 a{
     text-decoration: none;
+    color: #463333;
+    font-weight: bold;
 }
 a:hover{
     text-decoration: none;
+    color: #835858;
+    font-weight: bolder;
+    font-size: larger;
 }
 
 /* Accounts pages - login and signin */
@@ -20,7 +42,7 @@ a:hover{
 .separator::before,.separator::after {
     display: inline-block;
     content: "";
-    border-top: 1px solid black;
+    border-top: 2px solid #463333;
     width: 4rem;
     margin:-0.5rem 1rem;
     transform: translateY(-1rem);
@@ -29,8 +51,6 @@ a:hover{
 .accounts-submit{
     margin: 1rem;
     padding: .5rem;
-    border-radius: 3%;
-    width: 85%;
     font-weight: bold;
 }
 
@@ -40,14 +60,14 @@ a:hover{
         padding: 2vw;
         top: 20%;
         position: relative;
-        border: 1px solid #DCDCDC;
-        background-color: white;
+        border: 1px solid #835858;
+        background-color:#FFF0F0;
     }
     .login-section{
         border: 1px solid #DCDCDC;
         width: 50%;
         margin-top: 2vh;
-        background-color: white;
+        background-color:#FFF0F0;
     }
     .login-form{
         width: 90%;
@@ -57,7 +77,7 @@ a:hover{
         background: transparent;
         border: 0 solid;
         border-radius: 1%;
-        border: 1px solid #DCDCDC;
+        border: 1px solid #463333;
         color: white;
         display: block;
         margin: 1rem;
@@ -90,13 +110,12 @@ a:hover{
     align-items: center;
     padding-top: 1vw;
     height: 60px;
-    background-color: white;
-    border-bottom: #DCDCDC solid 1px;
+    width: 100%;
+    
   }
 
   .brand-logo:hover{
     text-decoration: none;
-    color: black;
   }
   
   .brand-logo:focus{

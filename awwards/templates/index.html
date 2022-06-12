@@ -4,8 +4,7 @@
 {% include_jquery %}
 
 {% block content %}
-<br><br><br>
-<div class="display-all-projects d-flex justify-content-center">
+<div class="display-all-projects d-flex justify-content-center pt-4">
     {% for project in all_projects %}
     <div class="card m-2" style="width: 20rem;">
         <img class="card-img-top" style="height: 50%" src="{{project.project_image.url}}" alt="Card image cap">
