@@ -1,0 +1,51 @@
+<header class="main-header fixed-top">
+    <div class="p-1">
+        <form action="/search/" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <div class="input-group">
+                    <input type="text" class="form-control search-text" required
+                        name="username" id="search-text" placeholder="Search by project name">
+                    <button class="btn btn-light search" id="button-addon2" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <a href="{% url 'homepage' %}" class="brand-logo">
+        <h2 class="page-title" title="HomePage">awwards</h2>
+    </a>
+    
+    <nav class="main-nav">
+        <ul>
+            <li class="nav-items"><a href="{% url 'homepage' %}" title="HomePage" >
+                {% load static %}
+                <img src="{% static 'css/assets/home-house-svgrepo-com.svg' %}" title="HomePage" alt="" srcset="">
+            </a></li>
+            {% if user is unauthenticated %}
+            <li class="nav-items"><a href="{% url 'login' %}" title="Login" >
+                {% load static %}
+                <img src="{% static 'css/assets/login-svgrepo-com.svg' %}" title="Login" alt="" srcset="">
+            </a></li>
+            <li class="nav-items"><a href="{% url 'signup' %}" title="Signup" >
+                {% load static %}
+                <img src="{% static 'css/assets/signup.svg' %}" title="Signup" alt="" srcset="">
+            </a></li>
+            {% else %}
+            <li class="nav-items"><a href="" >
+                {% load static %}
+                <img src="{% static 'css/assets/add-svgrepo-com.svg' %}" title="Upload project">
+            </a></li>
+            <li class="nav-items"><a href="">
+                {% load static %}
+                <img src="{% static 'css/assets/profile-svgrepo-com.svg' %}" title="{{request.user}}">
+            </a></li>
+            <li class="nav-items"><a href="{% url 'logout' %}">
+                {% load static %}
+                <img src="{% static 'css/assets/logout-svgrepo-com.svg' %}" title="Logout">
+            </a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
