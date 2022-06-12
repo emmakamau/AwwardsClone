@@ -28,7 +28,7 @@ def signup(request):
             )
             user_profile.save_profile()
 
-            subject = 'Welcome to IG'
+            subject = 'Welcome to Awwards'
             recipient_list = email
             message =   '''   
                         Hello,
